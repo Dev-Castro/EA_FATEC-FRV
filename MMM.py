@@ -52,7 +52,8 @@ while(True):
 
                 raiz+=1
 
-
+            # Ordenação dos dados
+            valores.sort()        
             # Print dos valores do arquivo em tabela.
             print("\n\033[1;35m       Valores do arquivo:\033[m\n")
 
@@ -130,7 +131,7 @@ ______________________________________________________________
             # Conta quantas vezes se repetiu.
             repeticoes = []
             # Classifica o tipo de moda.
-            classe = ["AMODAL", "MODAL", "BIMODAL", "MULTIMODAL"]
+            classe = ["AMODAL", "UNIMODAL", "BIMODAL", "MULTIMODAL"]
             # Indice de classificação.
             indice = 0
             # Armazena as maiores ocorrências de repetição.
@@ -162,13 +163,22 @@ ______________________________________________________________
                 print("\nA classificação desse conjunto de dados é: \033[1;31m%s\033[m." % classe[indice])
                 print("Quando não há repetições no conjunto de dados.")
 
+            # Quando todos os valores se repetem, porém em mesma frequência.
+            elif(sum(repeticoes)/quantidade == max(repeticoes)and max(repeticoes)!=1):
+
+                # Classificação Amodal
+                indice = 0
+                # Print info moda.
+                print("\nA classificação desse conjunto de dados é: \033[1;31m%s\033[m." % classe[indice])
+                print("Todos os valores se repetiram, porém em mesma frequência.")
+
             else:
 
-                ### Se não for amodal, só pode ser modal, bimodal ou multimodal.
+                ### Se não for amodal, só pode ser unimodal, bimodal ou multimodal.
 
                 # Buscar e armazenar as três maiores ocorrêcias de repetição(para identificar a classificação do conjunto de dados).
-                ### Sabendo as três maiores ocorrências de repetição, podemos saber se a classificação do conjunto de dados é modal, bimodal ou multimodal.
-                ### (modal) A > B , C
+                ### Sabendo as três maiores ocorrências de repetição, podemos saber se a classificação do conjunto de dados é unimodal, bimodal ou multimodal.
+                ### (unimodal) A > B , C
                 ### (bimodal) A = B > C
                 ### (multimodal) A = B = C
                 for i in range(3):
@@ -225,10 +235,10 @@ ______________________________________________________________
                         print("Quando há dois valores que se repetem em mesma frequência no\nconjunto de dados.")
                         print("\nValores que se repetem: \033[1;31m%.2f\033[m e \033[1;31m%.2f\033[m, que se repetem \033[1;31m%i\033[m vezes." % (modas[0], modas[1], max(maioresRepeticoes)))
 
-                    # Se não, é Modal.
+                    # Se não, é Unimodal.
                     else:
 
-                        # Classificação Modal.
+                        # Classificação Uniodal.
                         indice = 1
                         # Print info moda.
                         print("\nA classificação desse conjunto de dados é: \033[1;31m%s\033[m." % classe[indice])

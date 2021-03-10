@@ -106,10 +106,13 @@ ______________________________________________________________
 
             moda = []
             repeticoes = []
+
             classe = ["AMODAL", "MODAL", "BIMODAL", "MULTIMODAL"]
             indice = 0
+
             maioresRepeticoes = []
             modas = []
+            
             multimodal = []
             united = []
 
@@ -122,6 +125,13 @@ ______________________________________________________________
                 moda.append(valores[i])
 
             if(sum(repeticoes)/quantidade == 1):
+
+                indice = 0
+
+                print("\nA classificação desse conjunto de dados é: \033[1;31m%s\033[m." % classe[indice])
+                print("Quando não há repetições no conjunto de dados.")
+
+            elif(sum(repeticoes)/quantidade == max(repeticoes)):
 
                 indice = 0
 
